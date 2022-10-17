@@ -1,34 +1,17 @@
-﻿using System;
+﻿using NicolasAlvarez.Models;
+using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace NicolasAlvarez
+namespace NicolasAlvarez.Handlers
 {
-    public class Producto
+    public class ADO_Producto
     {
-        public int Id { get; set; }
-        public string Descripcion { get; set; }
-        public double Costo { get; set; }
-        public double Precioventa { get; set; }
-        public int Stock { get; set; }
-        public int IdUsuario { get; set; }
-
-        public Producto()
+        public List<Producto> TraerProducto(int idUsuario)
         {
-            this.Id = 0;
-            this.Descripcion = string.Empty;
-            this.Costo = 0;
-            this.Precioventa = 0;
-            this.Stock = 0;
-            this.IdUsuario = 0;
-        }
-
-        public List<Producto> TraerProducto(int Pidusuario)
-        {
-            int Vidusuario = Pidusuario;
             var Listaproductos = new List<Producto>();
 
             string cadena = "Server=NICOLAS; Database=SistemaGestion; Trusted_Connection=true;";
@@ -41,7 +24,7 @@ namespace NicolasAlvarez
                 comando.CommandText = "SELECT * from Producto WHERE IdUsuario = @varidusuario";
                 var parametro = new SqlParameter();
                 parametro.ParameterName = "varidusuario";
-                parametro.Value = Vidusuario;
+                parametro.Value = idUsuario;
                 comando.Parameters.Add(parametro);
 
                 var reader = comando.ExecuteReader();

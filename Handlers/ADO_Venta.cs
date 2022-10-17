@@ -1,30 +1,17 @@
-﻿using System;
+﻿using NicolasAlvarez.Models;
+using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace NicolasAlvarez
+namespace NicolasAlvarez.Handlers
 {
-    public class Venta
+    public class ADO_Venta
     {
-        public int Id { get; set; }
-        public string Comentarios { get; set; }
-        public int Idusuario { get; set; }
-        public ProductoVendido produven { get; set; }
- 
-        public Venta()
+        public List<Venta> TraerVenta(int idUsuario)
         {
-            this.Id=0;
-            this.Comentarios=string.Empty;
-            this.Idusuario=0;
-            this.produven = new ProductoVendido();
-        }
-
-        public List<Venta> TraerVenta(int Pidusuario)
-        {
-            int Vidusuario = Pidusuario;
             var Listaventa = new List<Venta>();
 
             string cadena = "Server=NICOLAS; Database=SistemaGestion; Trusted_Connection=true;";
@@ -42,7 +29,7 @@ namespace NicolasAlvarez
 
                 var parametrou = new SqlParameter();
                 parametrou.ParameterName = "varidusuario";
-                parametrou.Value = Vidusuario;
+                parametrou.Value = idUsuario;
                 comando.Parameters.Add(parametrou);
 
                 var reader = comando.ExecuteReader();
@@ -50,11 +37,7 @@ namespace NicolasAlvarez
                 {
                     var productov = new Venta();
                     productov.Id = Convert.ToInt32(reader.GetValue(0));
-                    productov.produven.Idproducto = Convert.ToInt32(reader.GetValue(1));
-                    productov.produven.Stock = Convert.ToInt32(reader.GetValue(2));
                     productov.Comentarios = reader.GetValue(3).ToString();
-                    productov.produven.productop.Descripcion = reader.GetValue(4).ToString();
-                    productov.produven.productop.Precioventa = Convert.ToDouble(reader.GetValue(5));
 
                     Listaventa.Add(productov);
                 }
@@ -63,5 +46,4 @@ namespace NicolasAlvarez
             return Listaventa;
         }
     }
-
 }

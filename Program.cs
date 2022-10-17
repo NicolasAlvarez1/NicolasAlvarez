@@ -1,4 +1,4 @@
-﻿using NicolasAlvarez;
+﻿using NicolasAlvarez.Models;
 using System.Reflection.PortableExecutable;
 
 class Program
@@ -114,11 +114,6 @@ class Program
             foreach (var itempvu in listaprodvu)
             {
                 Console.WriteLine("Id: {0} ", Convert.ToInt64(itempvu.Id));
-                Console.WriteLine("Idproducto: {0} ", Convert.ToInt64(itempvu.produven.Idproducto));
-                Console.WriteLine("Descripcion: {0}", itempvu.produven.productop.Descripcion.ToString());
-                Console.WriteLine("PrecioVenta: {0}", Convert.ToDouble(itempvu.produven.productop.Precioventa));
-                Console.WriteLine("Stock: {0}", Convert.ToInt32(itempvu.produven.Stock));
-                Console.WriteLine("Venta: {0}", Convert.ToInt32(itempvu.produven.Stock) * Convert.ToDouble(itempvu.produven.productop.Precioventa));
                 Console.WriteLine("Comentarios: {0}", itempvu.Comentarios.ToString());
             }
         }
@@ -134,7 +129,7 @@ class Program
         string nomu = Console.ReadLine();
         Console.WriteLine("Ingrese su contraseña:");
         string contra = Console.ReadLine();
-        usual.logueo(nomu,contra);
+        usual.Logueo(nomu,contra);
         if (usual.Id != 0)
         {
             Console.WriteLine("Id: {0} ", Convert.ToInt64(usual.Id));

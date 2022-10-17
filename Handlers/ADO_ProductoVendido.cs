@@ -1,30 +1,15 @@
-﻿using System;
+﻿using NicolasAlvarez.Models;
+using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
 using System.Linq;
-using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace NicolasAlvarez
+namespace NicolasAlvarez.Handlers
 {
-    public class ProductoVendido
+    public class ADO_ProductoVendido
     {
-        public int Id { get; set; }
-        public int Idproducto { get; set; }
-        public int Stock { get; set; }
-        public int Idventa { get; set; }
-        public Producto productop { get; set; }
-
-        public ProductoVendido()
-        {
-            this.Id = 0;
-            this.Idproducto = 0;
-            this.Stock = 0;
-            this.Idventa = 0;
-            this.productop = new Producto();
-        }
-
         public List<ProductoVendido> TraerProductoVendido(int Pidproducto, int Pidusuario)
         {
             int Vidproducto = Pidproducto;
@@ -71,4 +56,3 @@ namespace NicolasAlvarez
 
     }
 }
-
