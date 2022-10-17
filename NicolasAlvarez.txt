@@ -1,0 +1,70 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace NicolasAlvarez
+{
+    public class Usuario
+    {
+        public int Id { get; set; }
+        public string Nombre { get; set; }
+        public string Apellido  { get; set; }
+        public string Nombreusuario { get; set; }
+        public string Contraseña { get; set; }
+        public string Mail { get; set; }
+    }
+}
+
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace NicolasAlvarez
+{
+    public class Producto
+    {
+        public int Id { get; set; }
+        public string Descripcion { get; set; }
+        public double Costo { get; set; }
+        public double Precioventa { get; set; }
+        public int Stock { get; set; }
+        public int Idusuario { get; set; }
+    }
+}
+
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace NicolasAlvarez
+{
+    public class ProductoVendido
+    {
+        public int Id { get; set; }
+        public int Idproducto { get; set; }
+        public int Stock { get; set; }
+        public int Idventa { get; set; }
+    }
+}
+
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace NicolasAlvarez
+{
+    public class Venta
+    {
+        public int Id { get; set; }
+        public string Comentarios { get; set; }
+        public int Idusuario { get; set; }
+    }
+}
