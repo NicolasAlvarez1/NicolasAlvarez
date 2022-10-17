@@ -10,15 +10,15 @@ class Program
         Usuario usua = new Usuario();
         Console.WriteLine("Ingrese nombre de usuario:");
         string nom = Console.ReadLine();
-        usua.TraerUsuario(nom);
-        if (usua.Id != 0)
+        var datosusu = usua.TraerUsuario(nom);
+        if (datosusu != null)
         {
-            Console.WriteLine("Id: {0} ", Convert.ToInt64(usua.Id));
-            Console.WriteLine("Nombre: {0}", usua.Nombre.ToString());
-            Console.WriteLine("Apellido: {0}", usua.Apellido.ToString());
-            Console.WriteLine("NombreUsuario: {0}", usua.NombreUsuario.ToString());
-            Console.WriteLine("Contraseña: {0}", usua.Contraseña.ToString());
-            Console.WriteLine("Mail: {0}", usua.Mail.ToString());
+            Console.WriteLine("Id: {0} ", Convert.ToInt64(datosusu.Id));
+            Console.WriteLine("Nombre: {0}", datosusu.Nombre.ToString());
+            Console.WriteLine("Apellido: {0}", datosusu.Apellido.ToString());
+            Console.WriteLine("NombreUsuario: {0}", datosusu.NombreUsuario.ToString());
+            Console.WriteLine("Contraseña: {0}", datosusu.Contraseña.ToString());
+            Console.WriteLine("Mail: {0}", datosusu.Mail.ToString());
 
         }
         else
@@ -30,7 +30,7 @@ class Program
 
         //Segundo ejercicio
         Producto produ = new Producto();
-        string iding=string.Empty;
+        string iding = string.Empty;
         while (iding == string.Empty)
         {
             Console.WriteLine("Ingrese Idusuario para ver sus productos cargados:");
@@ -55,9 +55,7 @@ class Program
         }
 
 
-
         //Tercer ejercicio
-        Producto prod = new Producto();
         ProductoVendido produv = new ProductoVendido();
         string iding2 = string.Empty;
         while (iding2 == string.Empty)
@@ -66,36 +64,19 @@ class Program
             iding2 = Console.ReadLine();
         }
         int idusua = Convert.ToInt32(iding2);
-        var listaprod = prod.TraerProducto(idusua);
+        var listaprod = produv.TraerProductoVendido(idusua);
         if (listaprod.Count > 0)
         {
             foreach (var item in listaprod)
             {
-                int idprodv = Convert.ToInt32(item.Id);
-                string descrip = item.Descripcion.ToString();
-                double preciov = Convert.ToDouble(item.Precioventa);
-                var listaprodv = produv.TraerProductoVendido(idprodv, idusua);
-                if (listaprodv.Count > 0)
-                {
-                    foreach (var itempv in listaprodv)
-                    {
-                        Console.WriteLine("Id: {0} ", Convert.ToInt64(itempv.Id));
-                        Console.WriteLine("Idproducto: {0} ", Convert.ToInt64(itempv.Idproducto));
-                        Console.WriteLine("Descripcion: {0}", item.Descripcion.ToString());
-                        Console.WriteLine("PrecioVenta: {0}", Convert.ToDouble(item.Precioventa));
-                        Console.WriteLine("Stock: {0}", Convert.ToInt32(itempv.Stock));
-                        Console.WriteLine("Venta: {0}", Convert.ToInt32(itempv.Stock) * Convert.ToDouble(item.Precioventa));
-                    }
-                }
-                else
-                {
-                    Console.WriteLine("No tiene ventas del producto {0}", item.Descripcion.ToString());
-                }
+                Console.WriteLine("Id: {0} ", Convert.ToInt64(item.Id));
+                Console.WriteLine("Idproducto: {0} ", Convert.ToInt64(item.Idproducto));
+                Console.WriteLine("Stock: {0}", Convert.ToInt32(item.Stock));
             }
         }
         else
         {
-            Console.WriteLine("No tiene productos cargados el usuario!");
+            Console.WriteLine("No tiene productos vendidos el usuario!");
         }
 
 
@@ -129,15 +110,15 @@ class Program
         string nomu = Console.ReadLine();
         Console.WriteLine("Ingrese su contraseña:");
         string contra = Console.ReadLine();
-        usual.Logueo(nomu,contra);
-        if (usual.Id != 0)
+        var datoslog = usual.Logueo(nomu, contra);
+        if (datoslog != null)
         {
-            Console.WriteLine("Id: {0} ", Convert.ToInt64(usual.Id));
-            Console.WriteLine("Nombre: {0}", usual.Nombre.ToString());
-            Console.WriteLine("Apellido: {0}", usual.Apellido.ToString());
-            Console.WriteLine("NombreUsuario: {0}", usual.NombreUsuario.ToString());
-            Console.WriteLine("Contraseña: {0}", usual.Contraseña.ToString());
-            Console.WriteLine("Mail: {0}", usual.Mail.ToString());
+            Console.WriteLine("Id: {0} ", Convert.ToInt64(datoslog.Id));
+            Console.WriteLine("Nombre: {0}", datoslog.Nombre.ToString());
+            Console.WriteLine("Apellido: {0}", datoslog.Apellido.ToString());
+            Console.WriteLine("NombreUsuario: {0}", datoslog.NombreUsuario.ToString());
+            Console.WriteLine("Contraseña: {0}", datoslog.Contraseña.ToString());
+            Console.WriteLine("Mail: {0}", datoslog.Mail.ToString());
         }
         else
         {

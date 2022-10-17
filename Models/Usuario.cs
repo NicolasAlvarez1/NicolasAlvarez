@@ -31,30 +31,14 @@ namespace NicolasAlvarez.Models
             
         }
 
-        public void TraerUsuario(string nombre)
+        public Usuario TraerUsuario(string nombre)
         {
-
-            Usuario usuarioADO = new Usuario();
-            usuarioADO = pusuario.TraerUsuario(nombre);
-
-            this.Id = usuarioADO.Id;
-            this.Nombre = usuarioADO.Nombre;
-            this.Apellido = usuarioADO.Apellido;
-            this.NombreUsuario  =  usuarioADO.NombreUsuario;
-            this.Contraseña = usuarioADO.Contraseña;
-            this.Mail = usuarioADO.Mail;
+            return pusuario.TraerUsuario(nombre);
         }
 
-        public void Logueo(string nombreUsuario, string contraseña)
+        public Usuario Logueo(string nombreUsuario, string contraseña)
         {
-            Usuario usuarioADO = new Usuario();
-            usuarioADO = pusuario.Logueo(nombreUsuario,contraseña);
-            this.Id = usuarioADO.Id;
-            this.Nombre = usuarioADO.Nombre;
-            this.Apellido = usuarioADO.Apellido;
-            this.NombreUsuario = usuarioADO.NombreUsuario;
-            this.Contraseña = usuarioADO.Contraseña;
-            this.Mail = usuarioADO.Mail;
+            return pusuario.Logueo(nombreUsuario,contraseña);
         }
     }
 }

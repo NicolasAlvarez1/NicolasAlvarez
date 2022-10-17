@@ -25,9 +25,9 @@ namespace NicolasAlvarez.Models
             Idventa = 0;
         }
 
-        public List<ProductoVendido> TraerProductoVendido(int idProducto, int idUsuario)
+        public List<ProductoVendido> TraerProductoVendido(int idUsuario)
         { 
-            return listaproductov.TraerProductoVendido(idProducto,idUsuario);
+            return listaproductov.TraerProductoVendido(idUsuario);
         }
 
     }

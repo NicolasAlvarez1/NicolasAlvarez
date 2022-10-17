@@ -11,7 +11,7 @@ namespace NicolasAlvarez.Handlers
     public class ADO_Usuario
     {
         string cadena = "Server=NICOLAS; Database=SistemaGestion; Trusted_Connection=true;";
-        Usuario pusuario = new Usuario();
+        Usuario pusuario;
 
         public Usuario TraerUsuario(string nombre)
         {
@@ -28,6 +28,7 @@ namespace NicolasAlvarez.Handlers
                 var reader = comando.ExecuteReader();
                 while (reader.Read())
                 {
+                    pusuario = new Usuario();
                     pusuario.Id = Convert.ToInt32(reader.GetValue(0));
                     pusuario.Nombre = reader.GetValue(1).ToString();
                     pusuario.Apellido = reader.GetValue(2).ToString();
@@ -63,6 +64,7 @@ namespace NicolasAlvarez.Handlers
                 {
                     if (Convert.ToInt32(reader.GetValue(0)) != 0)
                     {
+                        pusuario = new Usuario();
                         pusuario.Id = Convert.ToInt32(reader.GetValue(0));
                         pusuario.Nombre = reader.GetValue(1).ToString();
                         pusuario.Apellido = reader.GetValue(2).ToString();
