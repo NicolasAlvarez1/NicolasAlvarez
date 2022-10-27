@@ -1,4 +1,4 @@
-﻿using NicolasAlvarez.Models;
+﻿using NicolasAlvarez.Dominios;
 using System.Reflection.PortableExecutable;
 
 class Program
@@ -13,7 +13,7 @@ class Program
         var datosusu = usua.TraerUsuario(nom);
         if (datosusu != null)
         {
-            Console.WriteLine("Id: {0} ", Convert.ToInt64(datosusu.Id));
+
             Console.WriteLine("Nombre: {0}", datosusu.Nombre.ToString());
             Console.WriteLine("Apellido: {0}", datosusu.Apellido.ToString());
             Console.WriteLine("NombreUsuario: {0}", datosusu.NombreUsuario.ToString());
@@ -42,7 +42,7 @@ class Program
         {
             foreach (var item in listapro)
             {
-                Console.WriteLine("Id: {0} ", Convert.ToInt64(item.Id));
+               
                 Console.WriteLine("Descripcion: {0}", item.Descripcion.ToString());
                 Console.WriteLine("Costo: {0}", Convert.ToDouble(item.Costo));
                 Console.WriteLine("PrecioVenta: {0}", Convert.ToDouble(item.Precioventa));

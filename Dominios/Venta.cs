@@ -1,17 +1,19 @@
-﻿using System;
+﻿using NicolasAlvarez.Repositorio;
+using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace NicolasAlvarez.Models
+namespace NicolasAlvarez.Dominios
 {
     public class Venta
     {
         public int Id { get; set; }
         public string Comentarios { get; set; }
         public int Idusuario { get; set; }
+        ADO_Venta listaventa = new ADO_Venta();
 
         public Venta()
         {
@@ -19,5 +21,11 @@ namespace NicolasAlvarez.Models
             Comentarios = string.Empty;
             Idusuario = 0;
         }
+
+        public List<Venta> TraerVenta(int idUsuario)
+        {
+            return listaventa.TraerVenta(idUsuario);
+        }
     }
+
 }

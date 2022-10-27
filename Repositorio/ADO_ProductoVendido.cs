@@ -1,4 +1,4 @@
-﻿using NicolasAlvarez.Models;
+﻿using NicolasAlvarez.Dominios;
 using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
@@ -6,7 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace NicolasAlvarez.Handlers
+namespace NicolasAlvarez.Repositorio
 {
     public class ADO_ProductoVendido
     {

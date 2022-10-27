@@ -6,8 +6,9 @@ using System.Threading.Tasks;
 using System.Data.SqlClient;
 using System.Data;
 using System.Reflection.Metadata;
+using NicolasAlvarez.Repositorio;
 
-namespace NicolasAlvarez.Models
+namespace NicolasAlvarez.Dominios
 {
     public class Usuario
     {
@@ -17,6 +18,7 @@ namespace NicolasAlvarez.Models
         public string NombreUsuario { get; set; }
         public string Contraseña { get; set; }
         public string Mail { get; set; }
+        ADO_Usuario pusuario = new ADO_Usuario();
 
         public Usuario()
         {
@@ -27,6 +29,16 @@ namespace NicolasAlvarez.Models
             Contraseña = string.Empty;
             Mail = string.Empty;
 
+        }
+
+        public Usuario TraerUsuario(string nombre)
+        {
+            return pusuario.TraerUsuario(nombre);
+        }
+
+        public Usuario Logueo(string nombreUsuario, string contraseña)
+        {
+            return pusuario.Logueo(nombreUsuario, contraseña);
         }
     }
 }
